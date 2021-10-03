@@ -6,7 +6,7 @@
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="say-hello" />
     <bpmn:endEvent id="EndEvent_0x6ir2l">
-      <bpmn:incoming>Flow_00fktxp</bpmn:incoming>
+      <bpmn:incoming>Flow_10en35d</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_16gzt2m" sourceRef="say-hello" targetRef="Activity_0ffw7nl" />
     <bpmn:userTask id="say-hello" name="Say hello to&#10;admin" camunda:candidateUsers="admin">
@@ -17,10 +17,19 @@
       <bpmn:incoming>SequenceFlow_16gzt2m</bpmn:incoming>
       <bpmn:outgoing>Flow_00fktxp</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_00fktxp" sourceRef="Activity_0ffw7nl" targetRef="EndEvent_0x6ir2l" />
+    <bpmn:sequenceFlow id="Flow_00fktxp" sourceRef="Activity_0ffw7nl" targetRef="Activity_1qzb0x2" />
+    <bpmn:task id="Activity_1qzb0x2" name="Valeria">
+      <bpmn:incoming>Flow_00fktxp</bpmn:incoming>
+      <bpmn:outgoing>Flow_10en35d</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_10en35d" sourceRef="Activity_1qzb0x2" targetRef="EndEvent_0x6ir2l" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="compania_seguros-process">
+      <bpmndi:BPMNEdge id="Flow_00fktxp_di" bpmnElement="Flow_00fktxp">
+        <di:waypoint x="520" y="117" />
+        <di:waypoint x="540" y="117" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_16gzt2m_di" bpmnElement="SequenceFlow_16gzt2m">
         <di:waypoint x="370" y="117" />
         <di:waypoint x="420" y="117" />
@@ -29,21 +38,24 @@
         <di:waypoint x="215" y="117" />
         <di:waypoint x="270" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_00fktxp_di" bpmnElement="Flow_00fktxp">
-        <di:waypoint x="520" y="117" />
+      <bpmndi:BPMNEdge id="Flow_10en35d_di" bpmnElement="Flow_10en35d">
+        <di:waypoint x="640" y="117" />
         <di:waypoint x="682" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="UserTask_08mft2c_di" bpmnElement="say-hello">
-        <dc:Bounds x="270" y="77" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
         <dc:Bounds x="682" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_08mft2c_di" bpmnElement="say-hello">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0ffw7nl_di" bpmnElement="Activity_0ffw7nl">
         <dc:Bounds x="420" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qzb0x2_di" bpmnElement="Activity_1qzb0x2">
+        <dc:Bounds x="540" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
